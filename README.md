@@ -1,29 +1,29 @@
-# markdown_reviewer
+# GitHub README用マークダウンエディタ『# GitHub README Previewer』
 
-## Project setup
-```
-npm install
-```
+## デモ
+<img src="https://user-images.githubusercontent.com/59694183/84570379-2855d680-adc8-11ea-8399-7a1275b077e0.gif" width="500">
+<br>
+<br>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+[こちら](https://github-readme-previewer.netlify.app/)からお使いいただけます。
 
-### Compiles and minifies for production
-```
-npm run build
-```
+<br>
+<br>
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## ポイント
+- TypeScript + Vue.jsで作成したマークダウンエディタです。
+- テキストエリアにマークダウン形式で記述し、それをリアルタイムでプレビューできます。
+- プレビュー画面のCSSには「github-markdown.css」を使用しており、GitHubのREADME.mdそのままの見た目でプレビューできます。
+- (TypeScript + Vueの練習で作ってみたもののあっさり完成してしまったため、あまりTS書けませんでした…笑)
 
-### Lints and fixes files
-```
-npm run lint
-```
+<br>
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 制作に使用した言語・ツール
+TypeScript / Vue.js / Vuetify
+<br>
+<br>
+
+## 制作時間
+5時間
+<br>
+<br>

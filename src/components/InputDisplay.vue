@@ -28,7 +28,7 @@ import marked from "marked";
 
 @Component
 export default class InputDisplay extends Vue {
-  markdownText = "### こちらにマークダウンで記述してください。";
+  markdownText = "### こちらにMarkdown記法で記述してください。";
 
   copyText(): void {
     document.getElementsByTagName("textarea")[0].select();
