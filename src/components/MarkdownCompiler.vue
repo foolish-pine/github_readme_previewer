@@ -22,12 +22,11 @@
 </template>
 
 <script lang="ts">
-import Component from "vue-class-component";
-import { Vue } from "vue-property-decorator";
+import { Vue, Component } from "vue-property-decorator";
 import marked from "marked";
 
 @Component
-export default class InputDisplay extends Vue {
+export default class MarkdownCompiler extends Vue {
   markdownText = "### こちらにMarkdown記法で記述してください。";
 
   copyText(): void {
