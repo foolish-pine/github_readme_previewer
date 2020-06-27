@@ -8,7 +8,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import Component from "vue-class-component";
+import { Vue } from "vue-property-decorator";
 import MarkdownCompiler from "./components/MarkdownCompiler.vue";
 
 @Component({
@@ -20,7 +21,7 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-// Web Fontのちらつき対策
+// Webフォントのちらつき対策
 html {
   visibility: hidden;
 }
