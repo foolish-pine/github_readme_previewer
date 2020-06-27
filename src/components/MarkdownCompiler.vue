@@ -7,7 +7,6 @@
         <v-btn class="mr-5" small @click="clickFileLoadButton">
           <v-icon class="mr-2">mdi-folder-open</v-icon>Open File
         </v-btn>
-
         <v-dialog v-model="saveFileDialog" max-width="500px">
           <template v-slot:activator="{ on }">
             <v-btn class="mr-5" small v-on="on">
@@ -28,7 +27,6 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-
         <v-btn class="mr-5" small @click="copyText">
           <v-icon class="mr-2">mdi-content-copy</v-icon>Copy To Clipboard
         </v-btn>
