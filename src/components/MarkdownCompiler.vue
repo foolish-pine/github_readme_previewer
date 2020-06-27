@@ -2,6 +2,7 @@
   <v-container class="pt-5">
     <v-content>
       <div class="d-flex mb-1">
+        <!-- ローカルファイル読み込み用のinput（非表示） -->
         <input style="display: none;" ref="loadFile" type="file" accept=".md" @change="loadFile()" />
         <v-btn class="mr-5" small @click="fileLoadBtnClick">
           <v-icon class="mr-2">mdi-folder-open</v-icon>Open File
@@ -36,8 +37,9 @@ export default class MarkdownCompiler extends Vue {
 
   $refs!: {
     loadFile: HTMLFormElement;
-  }
+  };
 
+  // テキストエリアの内容をクリップボードにコピーする
   copyText(): void {
     document.getElementsByTagName("textarea")[0].select();
     document.execCommand("copy");
@@ -47,20 +49,22 @@ export default class MarkdownCompiler extends Vue {
     this.markdownText = "";
   }
 
+  // ローカルファイルをテキストとして読み込み、テキストエリアに表示する
   loadFile(): void {
-    const file = this.$refs.loadFile.files[0]
-      if (!file) {
-        return;
-      }
-      const reader = new FileReader()
-      reader.addEventListener("load", () => {
-        this.markdownText = String(reader.result)
-      })
-      reader.readAsText(file)
+    const file = this.$refs.loadFile.files[0];
+    if (!file) {
+      return;
+    }
+    const reader = new FileReader();
+    reader.addEventListener("load", () => {
+      this.markdownText = String(reader.result);
+    });
+    reader.readAsText(file);
   }
 
+  // Open Fileボタンクリック時にloadFileを呼び出す
   fileLoadBtnClick(): void {
-    this.$refs.loadFile.click()
+    this.$refs.loadFile.click();
   }
 
   get compiledMarkdown(): string {
