@@ -26,6 +26,6 @@ TypeScript / Vue.js / Vuetify
 <br>
 
 ## 制作時間
-5時間
+10時間
 <br>
 <br>
