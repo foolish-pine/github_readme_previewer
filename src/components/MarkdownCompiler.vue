@@ -22,7 +22,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import Component from "vue-class-component";
+import { Vue } from "vue-property-decorator";
 import marked from "marked";
 
 @Component
