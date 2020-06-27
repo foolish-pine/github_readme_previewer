@@ -2,6 +2,10 @@
   <v-container class="pt-5">
     <v-content>
       <div class="d-flex mb-1">
+        <input style="display: none;" ref="loadFile" type="file" accept=".md" @change="loadFile()" />
+        <v-btn class="mr-5" small @click="fileLoadBtnClick">
+          <v-icon class="mr-2">mdi-folder-open</v-icon>Open File
+        </v-btn>
         <v-btn class="mr-5" small @click="copyText">
           <v-icon class="mr-2">mdi-content-copy</v-icon>Copy To Clipboard
         </v-btn>
@@ -30,6 +34,10 @@ import marked from "marked";
 export default class MarkdownCompiler extends Vue {
   markdownText = "### こちらにMarkdown記法で記述してください。";
 
+  $refs!: {
+    loadFile: HTMLFormElement;
+  }
+
   copyText(): void {
     document.getElementsByTagName("textarea")[0].select();
     document.execCommand("copy");
@@ -37,6 +45,22 @@ export default class MarkdownCompiler extends Vue {
 
   deleteText(): void {
     this.markdownText = "";
+  }
+
+  loadFile(): void {
+    const file = this.$refs.loadFile.files[0]
+      if (!file) {
+        return;
+      }
+      const reader = new FileReader()
+      reader.addEventListener("load", () => {
+        this.markdownText = String(reader.result)
+      })
+      reader.readAsText(file)
+  }
+
+  fileLoadBtnClick(): void {
+    this.$refs.loadFile.click()
   }
 
   get compiledMarkdown(): string {
