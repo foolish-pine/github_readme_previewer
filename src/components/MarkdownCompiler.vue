@@ -91,12 +91,17 @@ export default class MarkdownCompiler extends Vue {
     this.$refs.loadFile.click();
   }
 
+  // ダイアログのテキストフィールドに入力した名前でファイルを保存する
   saveFile(): void {
     const blob = new Blob([this.markdownText], { type: "text/.md" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
     link.download = `${this.fileName}.md`;
+    link.style.display = "none";
+    document.body.appendChild(link);
+
     link.click();
+    document.body.removeChild(link);
     this.saveFileDialog = false;
     this.fileName = "";
   }
