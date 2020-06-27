@@ -21,7 +21,7 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-// Web Fontのちらつき対策
+// Webフォントのちらつき対策
 html {
   visibility: hidden;
 }
