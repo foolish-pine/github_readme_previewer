@@ -106,6 +106,7 @@ export default class MarkdownCompiler extends Vue {
     this.fileName = "";
   }
 
+  // MarkdownをHTMLに変換する
   get compiledMarkdown(): string {
     return marked(this.markdownText);
   }
