@@ -15,7 +15,7 @@
           </template>
           <v-card class="py-5">
             <v-card-title>
-              <span class="sutitle-1">ファイル名を入力して保存します</span>
+              <span class="sutitle-1">名前を付けて保存する</span>
             </v-card-title>
             <v-card-text>
               <v-text-field v-model="fileName" suffix=".md" required></v-text-field>
