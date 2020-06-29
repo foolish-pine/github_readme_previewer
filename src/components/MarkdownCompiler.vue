@@ -3,7 +3,7 @@
     <v-content>
       <div class="d-flex mb-2">
         <!-- ローカルファイル読み込み用のinput（非表示） -->
-        <input style="display: none;" ref="loadFile" type="file" accept=".md" @change="loadFile" />
+        <input style="display: none;" ref="fileUploader" type="file" accept=".md" @change="loadFile" />
         <v-btn class="mr-5" small @click="clickFileLoadButton">
           <v-icon class="mr-2">mdi-folder-open</v-icon>Open File
         </v-btn>
@@ -58,7 +58,7 @@ export default class MarkdownCompiler extends Vue {
   markdownText = "### こちらにMarkdown記法で記述してください。";
 
   $refs!: {
-    loadFile: HTMLFormElement;
+    fileUploader: HTMLFormElement;
   };
 
   // テキストエリアの内容をクリップボードにコピーする
@@ -73,7 +73,7 @@ export default class MarkdownCompiler extends Vue {
 
   // ローカルファイルをテキストとして読み込み、テキストエリアに表示する
   loadFile(): void {
-    const file = this.$refs.loadFile.files[0];
+    const file = this.$refs.fileUploader.files[0];
     if (!file) {
       return;
     }
@@ -86,7 +86,8 @@ export default class MarkdownCompiler extends Vue {
 
   // Open Fileボタンクリック時にloadFileを呼び出す
   clickFileLoadButton(): void {
-    this.$refs.loadFile.click();
+    this.$refs.fileUploader.value = "";
+    this.$refs.fileUploader.click();
   }
 
   // ダイアログのテキストフィールドに入力した名前でファイルを保存する
